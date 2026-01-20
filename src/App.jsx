@@ -366,7 +366,7 @@ const Hero = ({ profile }) => (
       <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#b35e25] transition-colors group">
          <span className="p-1.5 bg-stone-100 rounded-full group-hover:bg-orange-50 transition-colors"><Linkedin size={14} /></span> LinkedIn
       </a>
-      <a href="resume.pdf" download className="flex items-center gap-2 hover:text-[#b35e25] transition-colors group">
+      <a href="resume-sun.pdf" download className="flex items-center gap-2 hover:text-[#b35e25] transition-colors group">
         <span className="p-1.5 bg-stone-100 rounded-full group-hover:bg-orange-50 transition-colors"><Download size={14} /></span> Resume
       </a>
     </div>
