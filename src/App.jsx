@@ -2,7 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { 
   Mail, Linkedin, Youtube, Menu, X, ExternalLink, 
   ChevronRight, Github, BookOpen, Music, Gamepad2, 
-  Code, AlertTriangle
+  Code, AlertTriangle, Download
 } from 'lucide-react';
 
 /* =============================================================================
@@ -16,7 +16,7 @@ const DATA = {
     title: "Engineer & Researcher @ Intersection of Cognition & Computation",
     email: "angelica.yz.sun@gmail.com",
     linkedin: "https://www.linkedin.com/in/yuezhou-sun-9428321b2",
-    lastUpdated: "Dec 2025",
+    lastUpdated: "Jan 2026",
     images: {
       photo: "personal_photo.jpg",
       icon: "icon_1.png"
@@ -30,16 +30,18 @@ const DATA = {
       type: "toggle-section",
       content: {
         professional: {
-          text: `I am a **software engineer** and researcher standing at the intersection of **human cognition** and **computational systems**. With an M.S. in Computer Science from Stanford and a dual background in Cognitive Science and CS from UCSD, my curiosity lies in **how human abilities, limitations, and behaviors interact with technology**.
+          text: `I’m a **software engineer** and aspiring **researcher** working at the intersection of human cognition and computational systems. I hold an **M.S. in Computer Science from Stanford** and a **B.S. in Computer Science + Cognitive Science from UC San Diego**, and I’ve served as a teaching assistant for multiple AI and machine learning courses. My current job is in **fintech**, where I develop and maintain a mission-critical data platform.
 
-Currently, I serve as a technical owner for **mission-critical legacy infrastructure** in the fintech sector. This role has honed my **engineering rigor**, but it has also deepened my resolve to **build systems that empower individuals rather than just institutions**. I am now embarking on a new journey to weave my engineering nuts and bolts back into my interdisciplinary roots. My goal is to drive research that ensures technological advancement translates into **tangible improvements** in people’s quality of life.`
+As I prepare to pursue a PhD, I’m broadly exploring research directions concerned with the **externalities of modern AI**. My top interests include building **AI tools that empower human experience rather than just productivity**, promoting **AI literacy**, and combating **AI-generated misinformation**. My interdisciplinary background and real-world engineering experience shape how I approach research: grounded, curious, and human-centered. Ultimately, I want to ensure **technological advancement translates into tangible improvements in people’s quality of life**.`
         },
         personal: {
-          text: `I am a **"lesser" computer programmer** dedicated to understanding humans, and a **"lesser" human researcher** who spends too much time writing code. At heart, I am a **serial hobbyist**, studying various subjects (from pharmaceutics to music theory), developing indie games, translating literature, and DMing TTRPG campaigns.
+          text: `I am a **“lesser” computer programmer** trying to understand humans, and a **“lesser” human researcher** who spends far too much time writing code. At heart, I’m a **serial hobbyist**, dabbling in everything from pharmaceutics to music theory, building indie games, translating literature, and running TTRPG campaigns.
 
-Professionally, I am the stubborn debugger who pesters the world with "why" questions. **Why is the data missing? Why does the process fail only after its hundredth iteration?** And most importantly: **Why are we witnessing a massive productivity leap in this AI era, yet people are working longer hours and feeling unhappier?**
+Professionally, I’m the **stubborn debugger** who keeps asking **why***.
+Why is the data missing? Why does the system fail only on the hundredth run?
+And most critically: **why are we living through a massive productivity boom in this AI era, yet people are working longer hours and struggling with existential fatigue?**
 
-I am returning to research because I cannot let that last question go unanswered. I want to leverage my eclectic knowledge, engineering grit, and idealistic curiosity to build a future where technology grants people the **freedom** to find and enjoy their own hobbies.`
+I’m returning to research because I can’t let the last question go unanswered. I want to use my **eclectic interests, engineering grit, and idealistic curiosity** to help build technologies that **make it easier for people to explore and enjoy what they love.**.`
         }
       }
     },
@@ -130,7 +132,11 @@ Designed an embedding method to dynamically inject lexicon knowledge into neural
           title: "Teaching Assistant",
           subtitle: "Stanford University",
           date: "Sep 2020 – Mar 2022",
-          description: `**Courses:** CS 229 Machine Learning, CS 224N Natural Language Processing, CS 124 Languages to Information.`
+          courses: [
+            "**CS 229 Machine Learning.** Instructors: Andrew Ng, Tengyu Ma, Chris Re",
+            "**CS 224N Natural Language Processing.** Instructor: Christopher Manning",
+            "**CS 124 From Language to Information.** Instructor: Dan Jurafsky"
+          ]
         },
         {
           title: "AP Computer Science Instructor",
@@ -142,7 +148,7 @@ Designed an embedding method to dynamically inject lexicon knowledge into neural
           title: "Teaching Apprentice",
           subtitle: "UC San Diego",
           date: "Jan 2018 – Mar 2018",
-          description: `**Course:** COGS 1 Intro to Cognitive Science.`
+          description: `**COGS 1 Intro to Cognitive Science.** Instructor: Mary Boyle.`
         }
       ]
     },
@@ -181,7 +187,7 @@ This video features a word-by-word explanation of English grammar and narrative 
         {
           title: "Song Writing",
           badge: "Experimental",
-          badgeColor: "bg-purple-100 text-purple-800",
+          badgeColor: "bg-stone-200 text-stone-600",
           image: "song_cover.jpg",
           description: "A one-week experimental expedition with friends. My contribution focused on lyrics and backseat editing.",
           link: { text: "Listen on Bilibili", url: "https://www.bilibili.com/video/BV1qxKAe5EBE" }
@@ -201,7 +207,7 @@ This video features a word-by-word explanation of English grammar and narrative 
       title: "Skills",
       type: "columns",
       items: [
-        { category: "Languages", list: ["Python", "C/C++", "Java", "SQL", "Bash", "Perl"] },
+        { category: "Software Dev", list: ["Python", "C/C++", "Java", "SQL", "Bash", "AWS Lambda", "AWS Aurora", "Cloudflare Workers"] },
         { category: "AI & Research", list: ["PyTorch", "HuggingFace", "TensorFlow", "Pandas", "NumPy", "Scikit-learn", "LaTeX", "Academic Writing"] },
         { category: "Creativity", list: ["Image Editing", "Video Editing", "Creative Writing"] },
         { category: "Spoken", list: ["English (Fluent)", "Mandarin (Native)", "Japanese (Intermediate)"] }
@@ -359,6 +365,9 @@ const Hero = ({ profile }) => (
       </a>
       <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#b35e25] transition-colors group">
          <span className="p-1.5 bg-stone-100 rounded-full group-hover:bg-orange-50 transition-colors"><Linkedin size={14} /></span> LinkedIn
+      </a>
+      <a href="resume.pdf" download className="flex items-center gap-2 hover:text-[#b35e25] transition-colors group">
+        <span className="p-1.5 bg-stone-100 rounded-full group-hover:bg-orange-50 transition-colors"><Download size={14} /></span> Resume
       </a>
     </div>
   </header>
@@ -533,6 +542,19 @@ const StandardSection = ({ sectionData, onOpenAdvisory }) => {
           </div>
         )}
 
+        {/* Courses Block (for Teaching Assistant items) */}
+        {item.courses && (
+          <div className="mt-4 mb-0">
+            <div className="space-y-1">
+              {item.courses.map((course, i) => (
+                <div key={i} className="text-sm text-stone-600">
+                  <RichText text={course} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Downplayed Link Style */}
         {item.link && (
           <div className="mt-1">
@@ -600,6 +622,28 @@ const Portfolio = () => {
   // Advisory Modal State
   const [advisoryOpen, setAdvisoryOpen] = useState(false);
   const [advisoryData, setAdvisoryData] = useState(null);
+
+  // Add scroll tracking to update the navigation bar's active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = DATA.sections.map((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return { id: section.id, top: rect.top };
+        }
+        return null;
+      }).filter(Boolean);
+
+      const currentSection = sections.find((section) => section.top >= 0 && section.top <= window.innerHeight / 2);
+      if (currentSection && currentSection.id !== activeSection) {
+        setActiveSection(currentSection.id);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeSection]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
