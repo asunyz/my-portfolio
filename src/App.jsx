@@ -16,7 +16,7 @@ const DATA = {
     title: "Engineer & Researcher @ Intersection of Cognition & Computation",
     email: "angelica.yz.sun@gmail.com",
     linkedin: "https://www.linkedin.com/in/yuezhou-sun-9428321b2",
-    lastUpdated: "Jan 2026",
+    lastUpdated: "Mar 2026",
     images: {
       photo: "personal_photo.jpg",
       icon: "icon_1.png"
@@ -79,6 +79,14 @@ I’m returning to research because I can’t let the last question go unanswere
       type: "timeline",
       items: [
         {
+          title: "Independent Research Project (Ongoing)",
+          description: `**Topic: Fine-Grained Image Style Retrieval**
+
+Investigating computational approaches to model image style as a multi-faceted construct, moving beyond traditional binary style-versus-subject paradigms. 
+`,
+          link: { text: "This is an ongoing project. Feel free to contact me for more details.", url:"mailto:angelica.yz.sun@gmail.com"}
+        },
+        {
           title: "Graduate Research Project | Stanford University",
           subtitle: "Advisor: Dr. Matei Zaharia",
           description: `**Topic: Architecture-Agnostic Neural Network Compression**
@@ -96,7 +104,7 @@ Designed an embedding method to dynamically inject lexicon knowledge into neural
         },
         {
           title: "Previous Lab Experience | UC San Diego",
-          description: `**Machine Learning, Perception & Cognition Lab (Dr. Zhuowen Tu):** Contributed to deep learning algorithms for wireframe detection and single-image 3D reconstruction.
+          description: `**Machine Learning, Perception & Cognition Lab (Dr. Zhuowen Tu):** Contributed to deep learning algorithms for language modeling, reinforcement learning, wireframe detection, and single-image 3D reconstruction.
 
 **Language Cognition Lab (Dr. Benjamin Bergen):** Assisted in designing and running behavioral experiments to analyze human language processing mechanisms.`
         }
@@ -159,8 +167,8 @@ Designed an embedding method to dynamically inject lexicon knowledge into neural
       items: [
         {
           title: "Indie Game Development",
-          badge: "Ongoing",
-          badgeColor: "bg-green-100 text-[#006600]",
+          badge: "Complete",
+          badgeColor: "bg-stone-200 text-stone-600",
           image: "game_screenshot.jpg",
           description: "A casual, kid-friendly game inspired by Tetris, Match 3, and fantasy web fiction tropes. I am building this from scratch to learn the Godot game engine and game loop logic.",
           link: { text: "Play on browser", url: "https://asunyz.github.io/CultistMatcher/" }
@@ -195,7 +203,7 @@ This video features a word-by-word explanation of English grammar and narrative 
         {
           title: "Web Novel Translation",
           badge: "On Hold",
-          badgeColor: "bg-yellow-100 text-yellow-800",
+          badgeColor: "bg-stone-200 text-stone-600",
           image: "translated_novel_cover.jpg",
           description: "I enjoy reading and translating – the puzzle game of finding, and sometimes coining, the perfect words to convey not just literal meaning, but also the author’s tone and cultural undertone. Currently translating a fantasy novel: \"Since I Started a Secret Cult.\"",
           link: { text: "Read on AO3", url: "https://archiveofourown.org/works/69672631?view_full_work=true" }
@@ -623,6 +631,24 @@ const Portfolio = () => {
   const [advisoryOpen, setAdvisoryOpen] = useState(false);
   const [advisoryData, setAdvisoryData] = useState(null);
 
+  // SEO: Set document title and meta tags
+  useEffect(() => {
+    document.title = `${DATA.profile.name} | Engineer & Researcher`;
+
+    const setMetaTag = (attr, value, content) => {
+      let element = document.querySelector(`meta[${attr}='${value}']`);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attr, value);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    setMetaTag('name', 'description', `Portfolio of ${DATA.profile.name}, a software engineer and researcher at the intersection of human cognition and computational systems.`);
+    setMetaTag('name', 'keywords', 'Yuezhou Sun, Angelica Sun, Yuezhou Angelica Sun, software engineer, researcher, AI, artificial intelligence, Stanford, UC San Diego, human-computer interaction, cognitive science');
+  }, []);
+
   // Add scroll tracking to update the navigation bar's active section
   useEffect(() => {
     const handleScroll = () => {
@@ -741,7 +767,6 @@ const Portfolio = () => {
         {/* --- META INFO / FOOTER --- */}
         <footer className="w-full text-right mt-16 text-xs text-stone-400 border-t border-stone-100 pt-8">
           <p className="font-medium">Last updated: {DATA.profile.lastUpdated}</p>
-          <p>Website generated with Gemini</p>
         </footer>
 
       </main>
